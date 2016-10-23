@@ -1,0 +1,7 @@
+Shirts 12 items
+Shoes 25 pairs
+Jeans 11 items
+Gloves 5 pairs
+Cloaks 7 items
+Glasses 12 items
+Socks 41 pairs
