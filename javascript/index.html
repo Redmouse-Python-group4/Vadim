@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Скрипт!</title>
+	<style>
+		body {
+			background-color: black;
+			font-family: "Comic Sans MS"
+		}
+
+		span {
+			text-decoration: none; 
+			color: black; 
+			cursor: pointer;
+			background-color: white;
+			padding: 20px;
+			margin: 0 200px;
+			font-size: 1.3em;
+			border-radius: 40px;
+		}
+		
+		#img {
+			height: 700px;
+			margin: 0 auto;
+			display: block;
+			text-align: center;
+		} 
+		
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#higher').click(function(){
+				$('img').animate({
+					width: '1000px', 
+					opacity: '1'
+				}, 500);
+			});
+			$('#lower').click(function(){
+				$('img').animate({
+					width: '0px',
+					opacity: '0'
+				}, 500);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="img">
+		<img src="Batman_Sign.jpg" style="width: 10px; opacity: 0;">
+	</div>
+	
+	<div style="margin: 0 auto; display: block; text-align: center;">
+		<span id="higher">Выйти из темноты</span>
+		<span id="lower">Исчезнуть</span>
+	</div>
+	
+</body>
+</html>
