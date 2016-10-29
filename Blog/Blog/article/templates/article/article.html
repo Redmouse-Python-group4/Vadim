@@ -1,0 +1,21 @@
+{% extends "loyout.html" %}
+{% load staticfiles %}
+{% block "title" %}
+    {{ article.title }}
+{% endblock %}
+{% block "content" %}
+    <div class="article">
+        <div class="article-head">
+           <h1>{{ article.title }}</h1>
+             Категории: <a href="{% url 'category' article.category_id %}">{{ article.category }}</a>
+             <img src="{% static 'img/comment-icon.png' %}" class="comment-ico">
+             <a href="">0 комментариев</a>
+             <span class='pub-date'>{{ article.pub_date }}</span>
+         </div>
+        <div class="article-body">
+           <p>{{ article.body }}</p>
+            <a href="/"><span class="button big-button">Главная</span></a>
+        </div>
+        <hr>
+    </div>
+{% endblock %}
