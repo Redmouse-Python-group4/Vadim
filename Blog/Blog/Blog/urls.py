@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from article.views import index, article, category, num_index
+from article.views import index, article, category, num_index, create_comments
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^([0-9]+)/$', num_index, name="num_index"),
     url(r'^article/([0-9]+)/$', article, name='article'),
     url(r'^category/([0-9]+)/$', category, name='category'),
+    url(r'^comments/([0-9]+)/$', create_comments, name="create_comments"),
     url(r'^admin/', admin.site.urls),
 # ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]

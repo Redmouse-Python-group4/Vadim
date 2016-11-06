@@ -177,16 +177,16 @@ header {
 }
 
 #left_col {
-	width: 750px;
+	width: 690px;
 	float: left;
-	padding-top: 10px;
+	padding: 0px 30px;
 }
 
 .article {
 	width: 690px;
 	float: left;
-	padding: 30px;
-	margin-top: -15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .article hr {
@@ -196,7 +196,7 @@ header {
 	text-align: center;
 }
 
-.article a {
+.article-head a {
 	text-decoration: underline;
 }
 
@@ -206,7 +206,12 @@ header {
 }
 
 .article-head h1 {
-	margin-bottom: 20px;
+	margin-bottom: 15px;
+}
+
+.article-head h1 a {
+	text-decoration: none;
+	color: #711;
 }
 
 .comment-ico {
@@ -256,7 +261,7 @@ header {
 #commercial {
 	float: left;
 	width: 200px;
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-left: 25px;
 	height: 500px;
 	background-color: #aaa;
@@ -284,7 +289,7 @@ header {
 	height: 50px;
 	background: url('../img/scroll.png');
 	display: none;
-	border-radius: 25px;
+	border-radius: 10px;
 	cursor: pointer;
 }
 
@@ -297,6 +302,66 @@ header {
 	margin-top: 20px;
 	width: 200px;
 	text-align: center;
+}
+
+#comments {
+	margin-bottom: 15px;
+}
+
+#comments h3 {
+	display: inline;
+}
+
+#comments label {
+	display: none;
+}
+
+#comments hr {
+	margin-top: 10px;
+}
+
+#comments textarea {
+	margin-left: 50px;
+	font-size: 1.25em;
+	padding: 3px;
+	resize: none;
+	color: #500;
+}
+
+#comments input {
+	margin-left: 40%;
+	padding: 5px 20px;
+	border-radius: 15px;
+	background-color: #A63A30;
+	color: #eee;
+	border: 2px solid #333;
+	outline: none;
+	cursor: pointer;
+}
+
+.commentary-block {
+	margin-top: 10px;
+	width: 640px;
+	border: 1px solid #333;
+	padding: 5px 5px 5px 50px;
+}
+
+.commentary-block h4, .commentary-block h5{
+	display: inline;
+	float: left;
+	margin-right: 10px;
+	font-size: 1em;
+	color: #555;
+}
+
+.commentary-block h4 {
+	color: #711;
+}
+
+.commentary-block p {
+	display: block;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 /* CATEGORY */

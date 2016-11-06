@@ -6,10 +6,8 @@
             {% for article in latest_article_list %}
               <div class="article">
                 <div class="article-head">
-                   <h1>{{ article.title }}</h1>
+                   <h1><a href="{% url 'article' article.id %}">{{ article.title }}</a></h1>
                      Категории: <a href="{% url 'category' article.category_id %}">{{ article.category }}</a>
-                     <img src="{% static 'img/comment-icon.png' %}" class="comment-ico">
-                     <a href="">0 комментариев</a>
                      <span class='pub-date'>{{ article.pub_date }}</span>
                  </div>
                 <div class="article-body">
@@ -26,10 +24,8 @@
         {% for article in latest_article_list %}
               <div class="article">
                 <div class="article-head">
-                   <h1>{{ article.title }}</h1>
+                   <h1><a href="{% url 'article' article.id %}">{{ article.title }}</a></h1>
                      Категории: <a href="{% url 'category' article.category_id %}">{{ article.category }}</a>
-                     <img src="{% static 'img/comment-icon.png' %}" class="comment-ico">
-                     <a href="">0 комментариев</a>
                      <span class='pub-date'>{{ article.pub_date }}</span>
                  </div>
                 <div class="article-body">

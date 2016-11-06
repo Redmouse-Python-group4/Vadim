@@ -8,8 +8,6 @@
         <div class="article-head">
            <h1>{{ article.title }}</h1>
              Категории: <a href="{% url 'category' article.category_id %}">{{ article.category }}</a>
-             <img src="{% static 'img/comment-icon.png' %}" class="comment-ico">
-             <a href="">0 комментариев</a>
              <span class='pub-date'>{{ article.pub_date }}</span>
          </div>
         <div class="article-body">
@@ -17,5 +15,41 @@
             <a href="/"><span class="button big-button">Главная</span></a>
         </div>
         <hr>
+    </div>
+    <div class='block' id='comments'>
+        <img src="{% static 'img/comment-icon.png' %}" class="comment-ico"><h3>Комментариев: {{ count_comments }}</h3>
+        <hr>
+        <form action="/comments/{{ article.id }}/" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input type="submit" value='Отправить'>
+        </form>
+        {% if comments %}
+            {% for comment in comments %}
+            <div class='commentary-block block'>
+                <h4>
+                {% if comment.author.first_name or comment.author.last_name%}
+                    {{ comment.author.first_name }} {{ comment.author.last_name }}
+                {% else %}
+                    {{ comment.author }}
+                {% endif %}
+                </h4>
+                <h5>
+                 - {{ comment.patch_date }}
+                 </h5>
+                <br>
+                <p>
+                {{ comment.body }}
+                </p>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class='commentary-block block'>
+            <p>
+            Комментарии отсутствуют
+            </p>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}
