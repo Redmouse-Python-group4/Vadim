@@ -394,3 +394,34 @@ h1.category-name {
 	margin-left: 20px;
 	padding: 10px 30px;
 }
+
+/* REG/Auth */
+
+#reg-auth_form {
+	margin-top: 50px;
+	text-align: center;
+}
+#reg-auth_form input {
+	border-radius: 5px;
+	padding: 2px;
+	margin-top: 5px;
+}
+#reg-auth_form span.helptext {
+	display: block;
+}
+#reg-auth_form ul.errorlist {
+	list-style-type: none;
+}
+
+#reg-auth_form .errorlist {
+	color: red;
+}
+#reg-auth_form input.reg-auth_button {
+	padding: 5px 20px;
+	border-radius: 15px;
+	background-color: #A63A30;
+	color: #eee;
+	border: 2px solid #333;
+	outline: none;
+	cursor: pointer;
+}
