@@ -4,6 +4,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import CommentsForm
 from comments.models import Comments
 from .models import Article, Category
+from django.contrib import auth
+from django.views.generic.edit import FormView
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login
 # Create your views here.
 
 
@@ -60,3 +64,30 @@ def create_comments(request, article_id):
         obj.save()
         return redirect('/article/%s#comments' % article.id)
     return redirect('/')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+
+class RegistrationForm(FormView):
+    form_class = UserCreationForm
+    success_url = '/'
+    template_name = 'article/reg.html'
+
+    def form_valid(self, form):
+        form.save()
+        return super(RegistrationForm, self).form_valid(form)
+
+
+class LoginForm(FormView):
+    form_class = AuthenticationForm
+    template_name = 'article/login.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        self.user = form.get_user()
+
+        login(self.request, self.user)
+        return super(LoginForm, self).form_valid(form)

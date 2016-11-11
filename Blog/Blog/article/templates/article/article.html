@@ -19,17 +19,21 @@
     <div class='block' id='comments'>
         <img src="{% static 'img/comment-icon.png' %}" class="comment-ico"><h3>Комментариев: {{ count_comments }}</h3>
         <hr>
+        {% if user.username %}
         <form action="/comments/{{ article.id }}/" method="POST">
             {% csrf_token %}
             {{ form }}
             <br>
             <input type="submit" value='Отправить'>
         </form>
+        {% else %}
+        <p>Для того чтобы оставлять комментарии вы должны авторизоваться</p>
+        {% endif %}
         {% if comments %}
             {% for comment in comments %}
             <div class='commentary-block block'>
                 <h4>
-                {% if comment.author.first_name or comment.author.last_name%}
+                {% if comment.author.first_name or comment.author.last_name %}
                     {{ comment.author.first_name }} {{ comment.author.last_name }}
                 {% else %}
                     {{ comment.author }}

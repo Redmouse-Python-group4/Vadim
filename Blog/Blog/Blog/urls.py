@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from article.views import index, article, category, num_index, create_comments
+from article.views import index, article, category, num_index, create_comments, logout, RegistrationForm, LoginForm
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,5 +26,7 @@ urlpatterns = [
     url(r'^category/([0-9]+)/$', category, name='category'),
     url(r'^comments/([0-9]+)/$', create_comments, name="create_comments"),
     url(r'^admin/', admin.site.urls),
-# ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-]
+    url(r'^logout/$', logout, name='logout'),
+    url(r'^reg/$', RegistrationForm.as_view(), name='reg'),
+    url(r'^login/$', LoginForm.as_view(), name='login'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

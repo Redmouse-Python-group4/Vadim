@@ -22,10 +22,19 @@
             </div>
             <div id="logo">
                 <a href="/"><img src="{% static 'img/logo.png' %}" alt="Логотип"></a>
-            </div>
+            </div>  
             <div id="reg-auth">
-                <a href=""><span>Регистрация</span></a>
-                <a href=""><span>Авторизация</span></a>
+                {% if user.username %}
+                <a href="{% url 'logout' %}"><span>Выход</span></a>
+                {% if user.first_name %}
+                <span>{{ user.first_name }}</span>
+                {% else %}
+                <span>{{ user.username }}</span>
+                {% endif %}
+                {% else %}
+                <a href="{% url 'login' %}"><span>Авторизация</span></a>
+                <a href="{% url 'reg' %}"><span>Регистрация</span></a>
+                {% endif %}
             </div>
         </div>
         <div id="menu" class="block">

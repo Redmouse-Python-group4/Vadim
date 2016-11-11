@@ -6,7 +6,6 @@ from .models import Comments
 
 class CommentsAdmin(admin.ModelAdmin):
     list_display = ('article', 'author', 'pub_date', 'enable')
-    list_filter = ['article', 'author', 'pub_date', 'enable']
-    search_fields = ['article']
+    list_filter = ['article', 'pub_date', 'enable']
 
 admin.site.register(Comments, CommentsAdmin)
